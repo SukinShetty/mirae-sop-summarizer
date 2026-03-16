@@ -35,7 +35,7 @@ const ChatInterface = () => {
   }, []);
 
   return (
-    <div className="h-screen flex bg-background">
+    <div className="h-screen flex bg-background overflow-hidden">
       <ChatSidebar
         chatHistory={chatHistory}
         activeChatId={activeChatId}
