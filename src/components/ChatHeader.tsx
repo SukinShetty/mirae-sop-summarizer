@@ -1,4 +1,4 @@
-import { PanelLeftClose, PanelLeft, Trash2, CircleCheck } from "lucide-react";
+import { PanelLeftClose, PanelLeft, Trash2 } from "lucide-react";
 
 interface ChatHeaderProps {
   sidebarOpen: boolean;
@@ -8,26 +8,22 @@ interface ChatHeaderProps {
 
 const ChatHeader = ({ sidebarOpen, onToggleSidebar, onClearChat }: ChatHeaderProps) => {
   return (
-    <header className="h-14 border-b border-border bg-card flex items-center justify-between px-4 shrink-0">
-      <div className="flex items-center gap-3">
+    <header className="h-11 flex items-center justify-between px-4 shrink-0">
+      <div className="flex items-center gap-2">
         <button
           onClick={onToggleSidebar}
-          className="p-1.5 rounded-md text-muted-foreground hover:bg-muted transition-colors duration-150"
+          className="p-1 rounded-md text-muted-foreground hover:bg-muted transition-colors duration-150"
         >
-          {sidebarOpen ? <PanelLeftClose className="w-5 h-5" /> : <PanelLeft className="w-5 h-5" />}
+          {sidebarOpen ? <PanelLeftClose className="w-4 h-4" /> : <PanelLeft className="w-4 h-4" />}
         </button>
-        <h1 className="text-sm font-semibold text-foreground">Internal SOP Summarizer</h1>
+        <span className="text-[13px] font-medium text-foreground">Internal SOP Summarizer</span>
       </div>
-
-      <div className="flex items-center gap-3">
-        <button
-          onClick={onClearChat}
-          className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted rounded-md transition-colors duration-150"
-        >
-          <Trash2 className="w-3.5 h-3.5" />
-          Clear
-        </button>
-      </div>
+      <button
+        onClick={onClearChat}
+        className="p-1.5 text-muted-foreground hover:bg-muted rounded-md transition-colors duration-150"
+      >
+        <Trash2 className="w-3.5 h-3.5" />
+      </button>
     </header>
   );
 };
