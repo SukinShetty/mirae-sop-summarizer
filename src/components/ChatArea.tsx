@@ -68,9 +68,9 @@ const ChatArea = ({ messages, setMessages, onFirstMessage }: ChatAreaProps) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col min-w-0 h-full">
-      <div className="flex-1 overflow-y-auto">
-        <div className="max-w-[720px] mx-auto px-6 py-6">
+    <div className="flex-1 flex flex-col min-h-0">
+      <div className="flex-1 overflow-y-auto min-h-0">
+        <div className="max-w-[720px] mx-auto px-6 py-6 pb-4">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center min-h-[50vh] pt-20">
               <p className="text-muted-foreground text-sm text-center mb-6">
@@ -100,7 +100,7 @@ const ChatArea = ({ messages, setMessages, onFirstMessage }: ChatAreaProps) => {
         </div>
       </div>
 
-      <div className="px-4 py-3">
+      <div className="shrink-0 px-4 py-3 border-t border-border/40 bg-background">
         <div className="max-w-[680px] mx-auto">
           <div className="flex items-end gap-2 border border-border rounded-xl bg-card px-3 py-2 focus-within:ring-1 focus-within:ring-ring/30 transition-shadow duration-150">
             <textarea
