@@ -16,14 +16,10 @@ const ChatHeader = ({ sidebarOpen, onToggleSidebar, onClearChat }: ChatHeaderPro
         >
           {sidebarOpen ? <PanelLeftClose className="w-5 h-5" /> : <PanelLeft className="w-5 h-5" />}
         </button>
-        <h1 className="text-sm font-semibold text-foreground">Internal Process Assistant</h1>
+        <h1 className="text-sm font-semibold text-foreground">Internal SOP Summarizer</h1>
       </div>
 
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1.5 text-xs text-status-green font-medium">
-          <CircleCheck className="w-3.5 h-3.5" />
-          Connected to Knowledge Base
-        </div>
         <button
           onClick={onClearChat}
           className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted rounded-md transition-colors duration-150"
