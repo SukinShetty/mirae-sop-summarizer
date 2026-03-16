@@ -19,11 +19,7 @@ export const sampleQuestions = [
   "What is the process for closing a trading account?",
 ];
 
-export const mockChatHistory: ChatSession[] = [
-  { id: "1", title: "Mutual Fund Redemption Process", timestamp: new Date(Date.now() - 3600000) },
-  { id: "2", title: "Demat Transfer Charges", timestamp: new Date(Date.now() - 86400000) },
-  { id: "3", title: "KYC Update Procedure", timestamp: new Date(Date.now() - 172800000) },
-];
+export const mockChatHistory: ChatSession[] = [];
 
 export const mockResponse = `## Mutual Fund Redemption Process
 
