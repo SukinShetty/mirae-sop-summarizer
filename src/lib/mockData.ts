@@ -57,16 +57,22 @@ export const mockResponse = `## Mutual Fund Redemption Process
 - For amounts above ₹2 lakhs, additional verification may be required.
 - Contact the operations desk for any discrepancies in unit balance.`;
 
-// Placeholder for future API integration
-export async function sendMessageToAgent(_message: string): Promise<string> {
-  // TODO: Connect to Lyzr agent API
-  // const response = await fetch('API_ENDPOINT', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ message })
-  // });
-  // return response.json();
-  
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  return mockResponse;
+export async function sendMessageToAgent(message: string, sessionId?: string): Promise<string> {
+  const { supabase } = await import("@/integrations/supabase/client");
+
+  const { data, error } = await supabase.functions.invoke("lyzr-chat", {
+    body: { message, session_id: sessionId || "default_session" },
+  });
+
+  if (error) {
+    console.error("Edge function error:", error);
+    throw new Error(error.message || "Failed to get response");
+  }
+
+  if (data?.error) {
+    console.error("Lyzr API error:", data.error);
+    throw new Error(data.error);
+  }
+
+  return data?.response || "No response received.";
 }
